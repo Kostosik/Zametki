@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C61781EB-83AF-4C01-AC60-8432FEAE3DD0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Zametki</RootNamespace>
-    <AssemblyName>Zametki</AssemblyName>
+    <RootNamespace>Notes</RootNamespace>
+    <AssemblyName>Notes</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -71,6 +71,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UserControlNotes.resx">
       <DependentUpon>UserControlNotes.cs</DependentUpon>

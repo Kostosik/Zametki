@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Zametki
+namespace Notes
 {
     public partial class MainForm : Form
     {
@@ -20,7 +20,7 @@ namespace Zametki
         private void addNoteButton_Click(object sender, EventArgs e)
         {
             UserControlNotes note = new UserControlNotes();
-            note.Parent = this;
+            notesFlowLayoutPanel.Controls.Add(note);
         }
     }
 }
