@@ -12,7 +12,7 @@ namespace Notes
 {
     public partial class UserControlNotes : UserControl
     {
-        int noteIndex;
+        private int noteIndex;
 
         public UserControlNotes(int noteIndex)
         {
@@ -55,6 +55,11 @@ namespace Notes
         internal string getMainText()
         {
             return noteRichTextBox.Text;
+        }
+
+        internal int getNoteIndex()
+        {
+            return noteIndex;
         }
     }
 }
