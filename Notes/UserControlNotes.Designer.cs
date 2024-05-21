@@ -68,7 +68,7 @@
             // noteRichTextBox
             // 
             this.noteRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.noteRichTextBox.ForeColor = System.Drawing.SystemColors.Window;
+            this.noteRichTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.noteRichTextBox.Location = new System.Drawing.Point(0, 0);
             this.noteRichTextBox.Name = "noteRichTextBox";
             this.noteRichTextBox.Size = new System.Drawing.Size(251, 219);
@@ -85,7 +85,7 @@
             this.EditButton.TabIndex = 1;
             this.EditButton.Text = "Редактировать";
             this.EditButton.UseVisualStyleBackColor = true;
-            this.EditButton.Click += new System.EventHandler(this.button1_Click);
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // UserControlNotes
             // 

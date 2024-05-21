@@ -30,8 +30,6 @@
         {
             this.addNoteButton = new System.Windows.Forms.Button();
             this.notesFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
-            this.notesFlowLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // addNoteButton
@@ -46,19 +44,11 @@
             // 
             // notesFlowLayoutPanel
             // 
-            this.notesFlowLayoutPanel.Controls.Add(this.vScrollBar1);
+            this.notesFlowLayoutPanel.AutoScroll = true;
             this.notesFlowLayoutPanel.Location = new System.Drawing.Point(12, 12);
             this.notesFlowLayoutPanel.Name = "notesFlowLayoutPanel";
             this.notesFlowLayoutPanel.Size = new System.Drawing.Size(819, 397);
             this.notesFlowLayoutPanel.TabIndex = 2;
-            // 
-            // vScrollBar1
-            // 
-            this.vScrollBar1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.vScrollBar1.Location = new System.Drawing.Point(0, 0);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(17, 397);
-            this.vScrollBar1.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -69,7 +59,7 @@
             this.Controls.Add(this.addNoteButton);
             this.Name = "MainForm";
             this.Text = "MainForm";
-            this.notesFlowLayoutPanel.ResumeLayout(false);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.ResumeLayout(false);
 
         }
@@ -77,7 +67,6 @@
         #endregion
         private System.Windows.Forms.Button addNoteButton;
         private System.Windows.Forms.FlowLayoutPanel notesFlowLayoutPanel;
-        private System.Windows.Forms.VScrollBar vScrollBar1;
     }
 }
 

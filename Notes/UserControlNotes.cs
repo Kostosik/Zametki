@@ -12,10 +12,13 @@ namespace Notes
 {
     public partial class UserControlNotes : UserControl
     {
-        public UserControlNotes()
+        int noteIndex;
+
+        public UserControlNotes(int noteIndex)
         {
             InitializeComponent();
-
+            this.noteIndex = noteIndex;
+            //MessageBox.Show(noteIndex.ToString());
         }
 
         private void noteRichTextBox_TextChanged(object sender, EventArgs e)
@@ -27,7 +30,7 @@ namespace Notes
         {
             noteRichTextBox.ReadOnly = true;
             //noteRichTextBox.Enabled = false;
-            noteRichTextBox.BackColor = Color.White;
+            //noteRichTextBox.BackColor = Color.White;
 
             topTextBox.ReadOnly = true;
             //topTextBox.Enabled=false;
@@ -36,9 +39,28 @@ namespace Notes
             //noteSplitContainer.BackColor = Color.White;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void EditButton_Click(object sender, EventArgs e)
         {
+            EditNoteForm editNoteForm = new EditNoteForm(this);
+            editNoteForm.Show();
+        }
 
+        internal void changeText(TextBox topTextBox,RichTextBox richTextBox)
+        {
+            this.topTextBox.Text = topTextBox.Text;
+            this.noteRichTextBox.Text = richTextBox.Text;
+
+
+        }
+
+        internal string getTopText()
+        {
+            return topTextBox.Text;
+        }
+
+        internal string getMainText()
+        {
+            return noteRichTextBox.Text;
         }
     }
 }
