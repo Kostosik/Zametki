@@ -13,9 +13,17 @@ namespace Notes
             
         }
 
-        internal void parseFromDataBase()
+        internal List<UserControlNotes> parseFromDataBase(List<int> ids,List<string> topTexts,List<string>bottomTexts)
         {
+            List<UserControlNotes> notes = new List<UserControlNotes>();
 
+            for (int i = 0; i < ids.Count; i++)
+            {
+                UserControlNotes note = new UserControlNotes(ids[i], topTexts[i], bottomTexts[i]);
+                notes.Add(note);
+            }
+
+            return notes;
         }
 
         internal void parseToDataBase(List<UserControlNotes> notes) 

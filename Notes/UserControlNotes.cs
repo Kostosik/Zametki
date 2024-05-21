@@ -21,6 +21,13 @@ namespace Notes
             this.noteIndex = noteIndex;
         }
 
+        public UserControlNotes(int id,string topText,string bottomText)
+        {
+            noteIndex=id;
+            topTextBox.Text=topText;
+            noteRichTextBox.Text=bottomText;
+        }
+
         private void UserControlNotes_Load(object sender, EventArgs e)
         {
             noteRichTextBox.ReadOnly = true;
