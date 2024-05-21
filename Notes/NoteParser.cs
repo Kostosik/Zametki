@@ -13,7 +13,12 @@ namespace Notes
             
         }
 
-        internal void parse()
+        internal void parseFromDataBase()
+        {
+
+        }
+
+        internal void parseToDataBase(List<UserControlNotes> notes) 
         {
 
         }

@@ -21,7 +21,7 @@ namespace Notes
             
         }
 
-        internal void saveToDataBase()
+        internal void saveToDataBase(SqlConnection conn)
         {
             string saveQuery = null;
         }

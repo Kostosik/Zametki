@@ -26,7 +26,7 @@ namespace Notes
             noteRichTextBox.ReadOnly = true;
 
             topTextBox.ReadOnly = true;
-            topTextBox.BackColor = Color.White;;
+            topTextBox.BackColor = Color.White;
         }
 
         private void EditButton_Click(object sender, EventArgs e)
