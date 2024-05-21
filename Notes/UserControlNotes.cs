@@ -17,26 +17,16 @@ namespace Notes
         public UserControlNotes(int noteIndex)
         {
             InitializeComponent();
+
             this.noteIndex = noteIndex;
-            //MessageBox.Show(noteIndex.ToString());
-        }
-
-        private void noteRichTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void UserControlNotes_Load(object sender, EventArgs e)
         {
             noteRichTextBox.ReadOnly = true;
-            //noteRichTextBox.Enabled = false;
-            //noteRichTextBox.BackColor = Color.White;
 
             topTextBox.ReadOnly = true;
-            //topTextBox.Enabled=false;
-            topTextBox.BackColor = Color.White;
-
-            //noteSplitContainer.BackColor = Color.White;
+            topTextBox.BackColor = Color.White;;
         }
 
         private void EditButton_Click(object sender, EventArgs e)
@@ -49,8 +39,12 @@ namespace Notes
         {
             this.topTextBox.Text = topTextBox.Text;
             this.noteRichTextBox.Text = richTextBox.Text;
+        }
 
-
+        internal void changeText(string topText,string  richText)
+        {
+            this.topTextBox.Text = topText;
+            this.noteRichTextBox.Text = richText;
         }
 
         internal string getTopText()

@@ -74,7 +74,6 @@
             this.noteRichTextBox.Size = new System.Drawing.Size(251, 219);
             this.noteRichTextBox.TabIndex = 0;
             this.noteRichTextBox.Text = "";
-            this.noteRichTextBox.TextChanged += new System.EventHandler(this.noteRichTextBox_TextChanged);
             // 
             // EditButton
             // 

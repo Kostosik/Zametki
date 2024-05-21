@@ -34,7 +34,7 @@
             // 
             // addNoteButton
             // 
-            this.addNoteButton.Location = new System.Drawing.Point(13, 415);
+            this.addNoteButton.Location = new System.Drawing.Point(12, 440);
             this.addNoteButton.Name = "addNoteButton";
             this.addNoteButton.Size = new System.Drawing.Size(75, 23);
             this.addNoteButton.TabIndex = 1;
@@ -47,7 +47,7 @@
             this.notesFlowLayoutPanel.AutoScroll = true;
             this.notesFlowLayoutPanel.Location = new System.Drawing.Point(12, 12);
             this.notesFlowLayoutPanel.Name = "notesFlowLayoutPanel";
-            this.notesFlowLayoutPanel.Size = new System.Drawing.Size(819, 397);
+            this.notesFlowLayoutPanel.Size = new System.Drawing.Size(819, 422);
             this.notesFlowLayoutPanel.TabIndex = 2;
             // 
             // MainForm
@@ -58,8 +58,10 @@
             this.Controls.Add(this.notesFlowLayoutPanel);
             this.Controls.Add(this.addNoteButton);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.ShowIcon = false;
+            this.Text = "Notes";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            this.ResizeEnd += new System.EventHandler(this.MainForm_ResizeEnd);
             this.ResumeLayout(false);
 
         }
