@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="DBName" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">notes</Value>
     </Setting>
     <Setting Name="TableName" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">notes</Value>
     </Setting>
   </Settings>
 </SettingsFile>

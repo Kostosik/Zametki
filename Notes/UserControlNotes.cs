@@ -23,7 +23,9 @@ namespace Notes
 
         public UserControlNotes(int id,string topText,string bottomText)
         {
-            noteIndex=id;
+            InitializeComponent();
+
+            noteIndex =id;
             topTextBox.Text=topText;
             noteRichTextBox.Text=bottomText;
         }

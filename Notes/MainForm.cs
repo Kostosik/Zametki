@@ -12,7 +12,9 @@ namespace Notes
 {
     public partial class MainForm : Form
     {
-        List<UserControlNotes> notes;
+        private List<UserControlNotes> notes;
+        DBConnection dBConnection;
+
         public MainForm()
         {
             InitializeComponent();
@@ -21,7 +23,11 @@ namespace Notes
 
         private void addNoteButton_Click(object sender, EventArgs e)
         {
-            UserControlNotes note = new UserControlNotes(notes.Count);
+            UserControlNotes note;
+            if (notes.Count == 0)
+                note = new UserControlNotes(1);
+            else
+                note = new UserControlNotes(notes[notes.Count-1].getNoteIndex()+1);
             notes.Add(note);
 
             notesFlowLayoutPanel.Controls.Add(note);
@@ -29,6 +35,9 @@ namespace Notes
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            DBQuery dBQuery = new DBQuery();
+            dBQuery.saveAllToDataBase(dBConnection.getConnection(), notes);
+
             Application.Exit();
         }
 
@@ -41,10 +50,35 @@ namespace Notes
 
         private void loadNotes()
         {
-            string connectionString = null;
-            DBConnection connection = new DBConnection(connectionString);
+            string connectionString = "server=localhost;uid=root;pwd=admin;database=" + Notes.Properties.Settings.Default.DBName;
+            dBConnection = new DBConnection(connectionString);
+            dBConnection.connect();
 
+            DBQuery query = new DBQuery();
 
+            noteStruct []notesToCreate;
+            notesToCreate = query.loadFromDataBase(dBConnection.getConnection());
+
+            for(int i =0;i<notesToCreate.Length;i++)
+            {
+                UserControlNotes note = new UserControlNotes(notesToCreate[i].Id, notesToCreate[i].topText, notesToCreate[i].bottomText);
+                notes.Add(note);
+                notesFlowLayoutPanel.Controls.Add(note);
+            }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            loadNotes();
+        }
+
+        internal void deleteNote(UserControlNotes noteToDelete)
+        {
+            notes.Remove(noteToDelete);
+            notesFlowLayoutPanel.Controls.Remove(noteToDelete);
+
+            DBQuery query = new DBQuery();
+            query.deleteNoteFromDataBase(dBConnection.getConnection(), noteToDelete);
         }
     }
 }

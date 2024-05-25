@@ -45,7 +45,8 @@ namespace Notes
 
         private void EditNoteForm_Load(object sender, EventArgs e)
         {
-            this.Size = noteToEdit.Size + new Size(100,100);
+            this.Size = noteToEdit.Size + new Size(100,130);
+            statusStrip1.SizingGrip = false;
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -57,6 +58,12 @@ namespace Notes
         private void EditNoteForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             noteToEdit.changeText(topTextBox, richTextBox1);
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            (noteToEdit.Parent.Parent as MainForm).deleteNote(noteToEdit);
+            this.Close();
         }
     }
 }

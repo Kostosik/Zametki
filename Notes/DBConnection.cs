@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Notes
 {
     internal class DBConnection
     {
         string connectionString;
-        SqlConnection conn;
+        MySqlConnection conn;
         public DBConnection(string connectionString) 
         {
             this.connectionString = connectionString;
@@ -22,13 +23,18 @@ namespace Notes
         {
             try
             {
-                conn = new SqlConnection(connectionString);
-            }catch (Exception ex) { MessageBox.Show(ex.Message); };
+                conn = new MySqlConnection(connectionString);
+
+            }catch (Exception ex) 
+            { 
+                MessageBox.Show(ex.Message);
+                Application.Exit();
+            };
 
             conn.Open();
         }
 
-        internal SqlConnection getConnection()
+        internal MySqlConnection getConnection()
         {
             if (conn == null)
             {
